@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html oncontextmenu="return alse"  on-tap="shoot.play(); fullscreen()" onclick="fullscreen()" >
+  <head>
+    <meta name="theme-color" content="#a7ddf2">
+    <meta name="msapplication-navbutton-color" content="#a7ddf2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#a7ddf2">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Cubie</title>
+    <link rel="stylesheet" href="style.css" />
+	  <link rel="icon" href="icon.png" type="image/png" sizes="16x16" />
+  </head>
+  <body>
+    <h1>IF YOU CAN SEE THIS YOUR EYES ARE EXTREMELY GOOD</h1>
+    <div class="topbar">
+    </div>
+    <div id="startscreen" style="position:fixed; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;">
+        <div style="position: absolute; margin: auto; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 500px; background-color: transparent; border-radius: 3px;">
+        <p class="title">Cubie</p>
+        <button onclick="play();" id="play" class="big" ontouchstart="play(); bgmsc.play()" on-tap="play()" style="display: inline">Play</button>
+        <p style="font-size: 5">thanks to https://www.fesliyanstudios.com/ for music, three.js for graphics, and jquery for the animations.</p>
+      </div>
+    </div>
+    <div id="paused">
+      <div id="admn">
+        <p style="text-align: center;">Admin tools</p>
+        <label for="dmge" style="width: 50px;">Damage</label>
+        <input type="range" min="1" max="33" value="1" id="dmge" style="width: 150px;"><br>
+        <label for="speed" style="width: 50px;">Speed</label>
+        <input type="range" min="0.1" max="5" step="0.1" value="0.1" id="speed" style="width: 150px;" onclick="spd = document.getElementById('speed').value"><br>
+      </div>
+      <button onclick="alert('To move around WASD or ARROW KEYS')alert('To jump, SPACEBAR')alert("To aim, E")">Help and instructions</button>
+      <p class="title">Paused</p>
+      <button id="unpause" onclick="play()" ontouchstart="play()">Resume</button>
+    </div>
+    <div id="coor">error</div>
+    <div id="center">
+      <button id="pause" ontouchstart="pause()" class="button">Pause</button>
+      <button id="leave" onclick="leave()" ontouchstart="leave()" class="button">leave</button>
+      <button class="big" onclick="invite()" ontouchstart="invite()">invite</button>
+    </div>
+    <div id="angle"></div>
+    <div id="left">
+      <button id="reload" class="button" onclick="reloadafter()" ontouchstart="reloadafter()" onfocus="play()">Reconnect</button>
+    </div>
+    <canvas onclick="shoot.play()" on-tap="shoot.play()" id="gc"></canvas>
+    <script src="socket.io/socket.io.js"></script>
+    <!-- library (three.js & jquery) -->
+    <script src="libs.js"></script>
+    <!-- scripts -->
+    <script src="things.js"></script>
+    <script src="main.js"></script>
+    <script src="controls.js"></script>
+    <script src="additional.js"></script>
+    <script src="time.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <audio id="audio" src="Music.mp3" loop></audio>
+  </body>
+</html>
